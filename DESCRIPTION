@@ -1,0 +1,18 @@
+Package: rmd2md
+Type: Package
+Title: Tools for blogging on jekyll/github pages
+Version: 0.1.0
+Date: 2016-09-10
+Authors@R: c(
+    person("Matthew", "Upson", , "matthew.a.upson@gmail.com", c("aut", "cre"))
+    )
+Maintainer: Matthew Upson <matthew.a.upson@gmail.com>
+Description: Converts Rmd files to md files for use with jekyll and github pages
+Suggests:
+    readr
+Imports:
+    knitr,
+    testthat,
+License: GPL-3
+LazyData: TRUE
+RoxygenNote: 5.0.1
