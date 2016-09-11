@@ -8,11 +8,8 @@ Authors@R: c(
     )
 Maintainer: Matthew Upson <matthew.a.upson@gmail.com>
 Description: Converts Rmd files to md files for use with jekyll and github pages
-Suggests:
-    readr
 Imports:
     knitr,
-    testthat,
+    testthat
 License: GPL-3
-LazyData: TRUE
 RoxygenNote: 5.0.1

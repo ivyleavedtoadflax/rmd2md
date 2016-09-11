@@ -1,0 +1,29 @@
+---
+title: "The Fast and the Furiously Frugal"
+author: matt_gregory
+comments: yes
+date: '2016-09-08'
+modified: `r format(Sys.time(), '%Y-%m-%d')`
+layout: post
+excerpt: "Quick and easy classification"
+published: false
+status: processed
+tags:
+- Classification
+- Decision trees
+- Fast and Frugal Trees
+- R
+categories: Rstats
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  dev = "svg",
+  include = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE
+  )
+
+```

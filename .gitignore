@@ -1,4 +1,9 @@
 .Rproj
-.Rproj.user/
 .Rbuildignore
 *.Rproj
+.Rproj.user
+.Rhistory
+tests/testthat/rmd_testcases/*.png
+tests/testthat/rmd_testcases/*.md
+tests/testthat/exif_testcases/test.jpg
+
