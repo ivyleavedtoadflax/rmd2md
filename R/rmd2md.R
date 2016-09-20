@@ -7,7 +7,8 @@
 #' @param path_site path to the local root storing the site files
 #' @param dir_rmd directory containing R Markdown files (inputs)
 #' @param dir_md directory containing markdown files (outputs)
-#' @param url_images where to store/get images created from plots directory +"/" (relative to path_site)
+#' @param figures where to store/get images created from plots directory +"/" (relative to path_site)
+#' @param url_images synonym for figures. Deprecated, and will be removed in next major version.
 #' @param out_ext the file extention to use for processed files.
 #' @param in_ext the file extention of input files to process.
 #' @param recursive should rmd files in subdirectories be processed.
@@ -20,7 +21,8 @@ rmd2md <- function(
   dir_rmd = "_rmd",
   dir_md = "_posts",
   #dir_images = "figures",
-  url_images = "figures/",
+  url_images = NULL,
+  figures = "figures/",
   out_ext = '.md',
   in_ext = '.Rmd',
   recursive = FALSE
@@ -30,6 +32,18 @@ rmd2md <- function(
 
   tryCatch({
 
+    if (is.null(url_images)) {
+
+      url_images <- figures
+
+    } else {
+
+      figures <- url_images
+
+      warning('url_images is deprecated and will be removed in the next major version (v1.0.0). use figures argument instead (but will default to url_images if used).')
+
+      }
+
     dir_rmd <- file.path(path_site, dir_rmd)
     dir_md <- file.path(path_site, dir_md)
 
@@ -37,7 +51,7 @@ rmd2md <- function(
     # is not: <<-. See
     # http://stackoverflow.com/questions/8218196/object-not-found-error-when-passing-model-formula-to-another-function
 
-    url_images <<- file.path(path_site, url_images)
+    figures <<- file.path(figures)
 
     # Check that the dirs exist
 
@@ -53,9 +67,9 @@ rmd2md <- function(
 
     }
 
-    if (!file.exists(url_images)) {
+    if (!file.exists(figures)) {
 
-      stop('Figures directory: ', url_images ,' does not exist!')
+      stop('Figures directory: ', figures ,' does not exist!')
 
     }
 
@@ -130,7 +144,7 @@ rmd2md <- function(
         # https://groups.google.com/forum/#!topic/knitr/18aXpOmsumQ
 
         knitr::opts_knit$set(base.url = "/")
-        knitr::opts_chunk$set(fig.path = url_images)
+        knitr::opts_chunk$set(fig.path = figures)
 
         knitr::knit(
           text = content,
@@ -138,7 +152,7 @@ rmd2md <- function(
         )
 
         figs = list.files(
-          path = url_images,
+          path = figures,
           pattern = '*.jpg',
           full.names = TRUE
         )
