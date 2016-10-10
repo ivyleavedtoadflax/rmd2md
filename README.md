@@ -9,7 +9,7 @@ There is one principle function `rmd2md()` that has the following arguments:
 |path_site|The base directory of the project. If none specified, this defaults to `getwd()`|
 |dir_rmd|The directory within the base directory in which the `.Rmd` files are stored. Defaults to `_rmd`.|
 |dir_md|The directory within the base directory to which the `.md` files are written. Defaults to `_md`.|
-|url_images|The directory into which the resulting figures should be stored. This defaults to `_figures/`.|
+|figures|The directory into which the resulting figures should be stored. This defaults to `./`.|
 |out_ext|Extention to be used for the files which are produced. Defaults to `.md`.|
 |in_ext|Extension of input files found within `dir_rmd`. Defaults to `.Rmd`|
 
