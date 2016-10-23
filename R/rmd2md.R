@@ -31,6 +31,8 @@ rmd2md <- function(
   # Expand the dirs
 
   tryCatch({
+    
+    suppressWarnings(
 
     if (is.null(url_images)) {
 
@@ -174,11 +176,14 @@ rmd2md <- function(
       # Finally remove exifs from jpgs
 
     }
+      
+      )
 
 
   },
-  warning = function(w) {
+  warning = function() {
 
+    w <- warnings()
     warning('Warning produced running rmd2md():', w)
 
   },
