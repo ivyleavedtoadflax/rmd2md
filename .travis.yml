@@ -1,6 +1,9 @@
 language: r
 cache: packages
 sudo: required
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install exiv2
 r_packages:
           - rmarkdown
 r_github_packages:
