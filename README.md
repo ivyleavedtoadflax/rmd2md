@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/ivyleavedtoadflax/rmd2md.svg?branch=master)](https://travis-ci.org/ivyleavedtoadflax/rmd2md)
-[![codecov.io](http://codecov.io/github/ivyleavedtoadflax/rmd2md/coverage.svg?branch=master)](http://codecov.io/github/ivyleavedtoadflax/vlrr?branch=rmd2md)
+[![codecov.io](http://codecov.io/github/ivyleavedtoadflax/rmd2md/coverage.svg?branch=master)](http://codecov.io/github/ivyleavedtoadflax/rmd2md?branch=master)
 
 # rmd2md
 
