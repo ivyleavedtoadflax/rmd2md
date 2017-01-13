@@ -22,7 +22,7 @@ rmd2md <- function(
   dir_md = "_posts",
   #dir_images = "figures",
   url_images = NULL,
-  figures = "./",
+  figures = getwd(),
   out_ext = '.md',
   in_ext = '.Rmd',
   recursive = FALSE
