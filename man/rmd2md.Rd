@@ -9,8 +9,8 @@ by default). It will change the published parameter to 'true' and change the
 status parameter to 'publish'.}
 \usage{
 rmd2md(path_site = getwd(), dir_rmd = "_rmd", dir_md = "_posts",
-  url_images = NULL, figures = "./", out_ext = ".md", in_ext = ".Rmd",
-  recursive = FALSE)
+  url_images = NULL, figures = getwd(), out_ext = ".md",
+  in_ext = ".Rmd", recursive = FALSE)
 }
 \arguments{
 \item{path_site}{path to the local root storing the site files}
