@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/ivyleavedtoadflax/rmd2md.svg?branch=master)](https://travis-ci.org/ivyleavedtoadflax/rmd2md)
+[![Appveyor status](https://ci.appveyor.com/api/projects/status/05md5oxdoq8a5ldn/branch/master?svg=true
+)](https://ci.appveyor.com/project/ivyleavedtoadflax/rmd2md/branch/master)
 [![codecov.io](http://codecov.io/github/ivyleavedtoadflax/rmd2md/coverage.svg?branch=master)](http://codecov.io/github/ivyleavedtoadflax/rmd2md?branch=master)
 [![GitHub tag](https://img.shields.io/github/tag/ivyleavedtoadflax/rmd2md.svg)](https://github.com/ivyleavedtoadflax/rmd2md/releases)
 
