@@ -3,5 +3,7 @@
 ## v0.1.4
 
 * Fixed issue with images being saved to the wrong folder (and implemeted new tests to ensure this is working correctly).
-* Removed the deprecated `url_images` folder argument.
+* Implementing build testing using appveyor for the windows environment.
+* Removed the deprecated `url_images` argument from `rmd2md()`.
 * Removed requirement for a published entry in the yml header. And will no longer alter this to published in the resulting `.md` file.
+* `remove_exifs` now automatically detects operating system by default.
