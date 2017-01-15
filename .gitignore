@@ -1,6 +1,5 @@
 .Rproj
 .Rbuildignore
-*.Rproj
 .Rproj.user
 .Rhistory
 tests/testthat/rmd_testcases/*.png
