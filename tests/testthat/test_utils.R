@@ -18,8 +18,21 @@ test_that(
   'fig_path works as expected.',
   {
     
+    os <- tolower(Sys.info()[['sysname']])
+    
+    if (os == 'linux') {
+    
     expect_equal(fig_path('figure'), 'figure/')
     expect_equal(fig_path('figure/'), 'figure/')
+    
+    } 
+    
+    if (os == 'windows') {
+      
+      expect_equal(fig_path('figure'), 'figure')
+      expect_equal(fig_path('figure/'), 'figure')
+      
+    }
     
     }
   )
