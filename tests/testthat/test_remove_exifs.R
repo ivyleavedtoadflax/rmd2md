@@ -1,8 +1,10 @@
 
-testthat::test_that(
+test_that(
   'Remove exifs works as expected',
   {
 
+    skip_on_os(os = 'windows')
+    
     # Set up some conditions:
 
     test_dir <- 'exif_testcases/'
