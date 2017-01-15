@@ -1,40 +1,59 @@
-
+context('Test that rmd2md works as expected')
 
 test_that(
   'End to end test on rmd2md()',
 
   {
 
-    wd = getwd()
-
-    #file.remove(file.path(wd, 'tests/testthat/rmd_testcases/test.md'))
-    #file.remove(file.path(wd, 'tests/testthat/rmd_testcases/2015-04-20-plot.mar-example-1.png'))
+    fig <- '2015-04-20-plot.mar-example-1.png'
+    fig_dir <- 'figures'
+    md <- 'test.md'
+    root <- 'rmd_testcases'
+    
+    if (file.exists(file.path(root, fig_dir, fig))) file.remove(file.path(root, fig_dir, fig))
+    if (file.exists(file.path(root, md))) file.remove(file.path(root, md))
 
     rmd2md(
-      path_site = 'rmd_testcases/',
+      path_site = root,
       dir_rmd = './',
       dir_md = './',
-      figures = 'rmd_testcases/',
+      figures = fig_dir,
       out_ext = '.md',
       in_ext = '.Rmd'
     )
+    
+    expect_true(file.exists(file.path(root, md)))
+    expect_true(file.exists(file.path(root,fig_dir, fig)))
+    
+  })
 
-    expect_true(file.exists('rmd_testcases/test.md'))
-    expect_true(file.exists('rmd_testcases/2015-04-20-plot.mar-example-1.png'))
-
-    # expect_warning(
-    #   rmd2md(
-    #     path_site = 'rmd_testcases/',
-    #     dir_rmd = './',
-    #     dir_md = './',
-    #     url_images = './rmd_testcases/',
-    #     out_ext = '.md',
-    #     in_ext = '.Rmd'
-    #   )
-    #)
-  }
-
-)
+test_that(
+  'rmd2md can save to figures1',
+  
+  {
+    
+    fig <- '2015-04-20-plot.mar-example-1.png'
+    fig_dir <- 'figures1'
+    md <- 'test.md'
+    root <- 'rmd_testcases'
+    
+    if (file.exists(file.path(root, fig_dir, fig))) file.remove(file.path(root, fig_dir, fig))
+    if (file.exists(file.path(root, md))) file.remove(file.path(root, md))
+    
+    rmd2md(
+      path_site = root,
+      dir_rmd = './',
+      dir_md = './',
+      figures = fig_dir,
+      out_ext = '.md',
+      in_ext = '.Rmd'
+    )
+    
+    expect_true(file.exists(file.path(root, md)))
+    expect_true(file.exists(file.path(root,fig_dir, fig)))
+    expect_true(file.info(file.path(root,fig_dir, fig))$size > 0)
+    
+  })
 
 
 

@@ -20,9 +20,7 @@ rmd2md <- function(
   path_site = getwd(),
   dir_rmd = "_rmd",
   dir_md = "_posts",
-  #dir_images = "figures",
-  url_images = NULL,
-  figures = getwd(),
+  figures = 'figures',
   out_ext = '.md',
   in_ext = '.Rmd',
   recursive = FALSE
@@ -30,22 +28,9 @@ rmd2md <- function(
 
   # Expand the dirs
 
-  tryCatch(
+  tryCatch({
 
-    suppressWarnings({
-
-
-      if (is.null(url_images)) {
-
-        url_images <- figures
-
-      } else {
-
-        figures <- url_images
-
-        warning('url_images is deprecated and will be removed in the next major version (v1.0.0). use figures argument instead (but will default to url_images if used).')
-
-      }
+    #suppressWarnings({
 
       dir_rmd <- file.path(path_site, dir_rmd)
       dir_md <- file.path(path_site, dir_md)
@@ -54,7 +39,7 @@ rmd2md <- function(
       # is not: <<-. See
       # http://stackoverflow.com/questions/8218196/object-not-found-error-when-passing-model-formula-to-another-function
 
-      figures <<- file.path(figures)
+      figures <- file.path(path_site, fig_path(figures))
 
       # Check that the dirs exist
 
@@ -70,11 +55,11 @@ rmd2md <- function(
 
       }
 
-      if (!file.exists(figures)) {
-
-        stop('Figures directory: ', figures ,' does not exist!')
-
-      }
+      # if (!file.exists(file.path(path_site, figures))) {
+      # 
+      #   stop('Figures directory: ', figures ,' does not exist!')
+      # 
+      # }
 
       # List files to be converted
 
@@ -105,9 +90,7 @@ rmd2md <- function(
 
         # Read content from each of the files in turn
 
-        content <- readLines(
-          file.path(dir_rmd, f)
-        )
+        content <- readLines(file.path(dir_rmd, f))
 
         if (parse_status(content) == 'process') {
 
@@ -146,13 +129,10 @@ rmd2md <- function(
           # The URL of an image is always base.url + fig.path"
           # https://groups.google.com/forum/#!topic/knitr/18aXpOmsumQ
 
-          knitr::opts_knit$set(base.url = "/")
+          knitr::opts_knit$set(base.url = '/')
           knitr::opts_chunk$set(fig.path = figures)
 
-          knitr::knit(
-            text = content,
-            output = outFile
-          )
+          knitr::knit(text = content, output = outFile)
 
           figs = list.files(
             path = figures,
@@ -178,19 +158,11 @@ rmd2md <- function(
 
       }
 
-
-  }),
-  warning = function() {
-
-    w <- warnings()
-    warning('Warning produced running rmd2md():', w)
-
-  },
-  error = function(e)  {
-
-    stop('Error produced running rmd2md():', e)
-
-  },
+}
+  #})
+  ,
+  warning = function() warning('Warning produced running rmd2md():', warnings()),
+  error = function(e) stop('Error produced running rmd2md():', e),
   finally = {}
   )
 }
