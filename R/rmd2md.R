@@ -1,19 +1,20 @@
-#' This R script will process all R markdown files (those with in_ext file extention,
-#' .rmd by default) in the current working directory. Files with a status of
-#' 'processed' will be converted to markdown (with out_ext file extention, '.markdown'
-#' by default). It will change the published parameter to 'true' and change the
-#' status parameter to 'publish'.
-#'
+#' This R script will process all R markdown files (those with in_ext file
+#' extention, .rmd by default) in the current working directory. Files with a
+#' status of 'processed' will be converted to markdown (with out_ext file
+#' extention, '.markdown' by default). It will change the published parameter to
+#' 'true' and change the status parameter to 'publish'.
+#' 
 #' @param path_site path to the local root storing the site files
 #' @param dir_rmd directory containing R Markdown files (inputs)
 #' @param dir_md directory containing markdown files (outputs)
-#' @param figures where to store/get images created from plots directory +"/" (relative to path_site)
-#' @param url_images synonym for figures. Deprecated, and will be removed in next major version.
+#' @param figures where to store/get images created from plots directory +"/"
+#'   (relative to path_site)
 #' @param out_ext the file extention to use for processed files.
 #' @param in_ext the file extention of input files to process.
 #' @param recursive should rmd files in subdirectories be processed.
 #' @return nothing.
-#' @author Jason Bryer <jason@bryer.org> edited by Andy South and Matthew Upson <matthew.a.upson@gmail.com>
+#' @author Jason Bryer <jason@bryer.org> edited by Andy South and Matthew Upson
+#'   <matthew.a.upson@gmail.com>
 #' @export
 
 rmd2md <- function(
@@ -102,12 +103,11 @@ rmd2md <- function(
 
           content[nchar(content) == 0] <- ' '
           content <- change_status(content)
-          content <- change_published(content)
 
           # This is a horrible hack, but knitr will not seem to find this object
           # if it is not: <<-
 
-          outFile <<- file.path(
+          outFile <- file.path(
             dir_md, paste0(substr(f, 1, (nchar(f)-(nchar(in_ext)))), out_ext)
           )
 
