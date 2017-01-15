@@ -140,13 +140,7 @@ rmd2md <- function(
             full.names = TRUE
           )
 
-          os <- Sys.info()['sysname']
-
-          for (f in figs) {
-
-            remove_exifs(os = os, fig = f)
-
-          }
+          for (f in figs) remove_exifs(fig = f)
 
         } else {
 
