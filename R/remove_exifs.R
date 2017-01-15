@@ -1,5 +1,7 @@
 
-remove_exifs <- function(os, fig) {
+remove_exifs <- function(
+  os = Sys.info()['sysname'],
+  fig) {
 
 tryCatch(
     {
