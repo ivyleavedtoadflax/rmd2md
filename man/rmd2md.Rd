@@ -2,15 +2,15 @@
 % Please edit documentation in R/rmd2md.R
 \name{rmd2md}
 \alias{rmd2md}
-\title{This R script will process all R markdown files (those with in_ext file extention,
-.rmd by default) in the current working directory. Files with a status of
-'processed' will be converted to markdown (with out_ext file extention, '.markdown'
-by default). It will change the published parameter to 'true' and change the
-status parameter to 'publish'.}
+\title{This R script will process all R markdown files (those with in_ext file
+extention, .rmd by default) in the current working directory. Files with a
+status of 'processed' will be converted to markdown (with out_ext file
+extention, '.markdown' by default). It will change the published parameter to
+'true' and change the status parameter to 'publish'.}
 \usage{
 rmd2md(path_site = getwd(), dir_rmd = "_rmd", dir_md = "_posts",
-  url_images = NULL, figures = getwd(), out_ext = ".md",
-  in_ext = ".Rmd", recursive = FALSE)
+  figures = "figures", out_ext = ".md", in_ext = ".Rmd",
+  recursive = FALSE)
 }
 \arguments{
 \item{path_site}{path to the local root storing the site files}
@@ -19,9 +19,8 @@ rmd2md(path_site = getwd(), dir_rmd = "_rmd", dir_md = "_posts",
 
 \item{dir_md}{directory containing markdown files (outputs)}
 
-\item{url_images}{synonym for figures. Deprecated, and will be removed in next major version.}
-
-\item{figures}{where to store/get images created from plots directory +"/" (relative to path_site)}
+\item{figures}{where to store/get images created from plots directory +"/"
+(relative to path_site)}
 
 \item{out_ext}{the file extention to use for processed files.}
 
@@ -33,13 +32,14 @@ rmd2md(path_site = getwd(), dir_rmd = "_rmd", dir_md = "_posts",
 nothing.
 }
 \description{
-This R script will process all R markdown files (those with in_ext file extention,
-.rmd by default) in the current working directory. Files with a status of
-'processed' will be converted to markdown (with out_ext file extention, '.markdown'
-by default). It will change the published parameter to 'true' and change the
-status parameter to 'publish'.
+This R script will process all R markdown files (those with in_ext file
+extention, .rmd by default) in the current working directory. Files with a
+status of 'processed' will be converted to markdown (with out_ext file
+extention, '.markdown' by default). It will change the published parameter to
+'true' and change the status parameter to 'publish'.
 }
 \author{
-Jason Bryer <jason@bryer.org> edited by Andy South and Matthew Upson <matthew.a.upson@gmail.com>
+Jason Bryer <jason@bryer.org> edited by Andy South and Matthew Upson
+  <matthew.a.upson@gmail.com>
 }
 
