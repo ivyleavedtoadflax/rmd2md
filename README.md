@@ -23,8 +23,6 @@ There is one principle function `rmd2md()` that has the following arguments:
 
 The package can be installed with the `devtools` package with `devtools::install_github('ivyleavedtoadflax/rmd2md')`.
 
-If you cannot use this function (due to firewalls for instance) you can download the package as a `.zip` file from the main repository page, and run `devtools::install_local('path_to_zip_file')`.
-
 ## Using rmd2md()
 
 ### From the terminal
